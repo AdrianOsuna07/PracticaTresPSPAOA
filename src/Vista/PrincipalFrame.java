@@ -31,7 +31,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
 
         jMenu1.setText("Ver");
 
-        VerCliente.setText("Ver Cliente");
+        VerCliente.setText("Visualizar");
         VerCliente.setToolTipText("");
         VerCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -40,7 +40,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
         });
         jMenu1.add(VerCliente);
 
-        DarDeAlta.setText("Dar de Alta");
+        DarDeAlta.setText("Nuevo");
         jMenu1.add(DarDeAlta);
 
         jMenuBar1.add(jMenu1);

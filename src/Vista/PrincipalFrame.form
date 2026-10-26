@@ -11,7 +11,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="VerCliente">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ver Cliente"/>
+                <Property name="text" type="java.lang.String" value="Visualizar"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
               <Events>
@@ -20,7 +20,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="DarDeAlta">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Dar de Alta"/>
+                <Property name="text" type="java.lang.String" value="Nuevo"/>
               </Properties>
             </MenuItem>
           </SubComponents>
