@@ -7,6 +7,14 @@
         <Property name="text" type="java.lang.String" value="jButton1"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JButton" name="jButton3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Primer Ciente"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+      </Events>
+    </Component>
   </NonVisualComponents>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -23,27 +31,33 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                      <Component id="Adelante" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Nombre" alignment="1" min="-2" pref="68" max="-2" attributes="0"/>
-                          <Component id="Numero" alignment="1" min="-2" pref="68" max="-2" attributes="0"/>
-                      </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="Adelante" min="-2" max="-2" attributes="0"/>
+                  <Component id="Numero" alignment="1" min="-2" pref="68" max="-2" attributes="0"/>
+                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                      <Component id="PuntosLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="Nombre" min="-2" pref="68" max="-2" attributes="0"/>
+                      <Component id="Fecha" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="86" max="32767" attributes="0"/>
+              <EmptySpace pref="60" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="Atras" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jTextField1" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jTextField2" alignment="1" max="32767" attributes="0"/>
+                  <Component id="cajaNumero" alignment="1" max="32767" attributes="0"/>
+                  <Component id="cajaNombre" alignment="1" max="32767" attributes="0"/>
+                  <Component id="cajaPunto" max="32767" attributes="0"/>
+                  <Component id="cajaFecha" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+              <Component id="PrimerCliente" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <Component id="UltimoCliente" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -53,19 +67,34 @@
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Numero" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cajaNumero" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Nombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cajaNombre" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="145" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="PuntosLabel" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="cajaPunto" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Fecha" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="cajaFecha" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="54" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Adelante" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Atras" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="PrimerCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="UltimoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -73,23 +102,37 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="Numero">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Numero"/>
+        <Property name="text" type="java.lang.String" value="Numero: "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="Nombre">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre"/>
+        <Property name="text" type="java.lang.String" value="Nombre: "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JLabel" name="PuntosLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Puntos:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Fecha">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fecha: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="cajaNumero">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cajaNumeroActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
+    <Component class="javax.swing.JTextField" name="cajaNombre">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cajaNombreActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="cajaPunto">
+    </Component>
+    <Component class="javax.swing.JTextField" name="cajaFecha">
     </Component>
     <Component class="javax.swing.JButton" name="Adelante">
       <Properties>
@@ -105,6 +148,22 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AtrasActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="PrimerCliente">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Primer Ciente"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PrimerClienteActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="UltimoCliente">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ultimo Cliente"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UltimoClienteActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

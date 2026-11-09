@@ -7,20 +7,29 @@ import java.util.ArrayList;
 import javax.swing.JLabel;
 
 public class Controlador {
-    private ArrayList lista;
+    private ArrayList<Cliente> lista;
     private int indice;
+    
 
     public Controlador() {
-        this.lista = new ArrayList <Cliente>();
+        this.lista = new ArrayList<>();
         this.indice = 0;
+        
+        lista.add(new Cliente(1, "Ana Gómez", 450.0f, LocalDate.of(1995, 5, 12)));
+        lista.add(new Cliente(2, "Carlos Pérez", 820.5f, LocalDate.of(1988, 11, 23)));
+        lista.add(new Cliente(3, "Lucía Martí", 150.0f, LocalDate.of(2005, 2, 8)));
     }
     
     public void avanzar(){
-        indice++;
+        if (indice < lista.size() - 1) {
+            indice++;
+        }
     }
     
     public void retroceder(){
-        indice--;
+        if (indice > 0) {
+            indice--;
+        }
     }
     
     public void irAPrimero(){
@@ -28,22 +37,29 @@ public class Controlador {
     }
     
     public void irAlUltimo(){
-        indice = lista.size()-1;
+        if (!lista.isEmpty()) {
+            indice = lista.size() - 1;
+        }
     }
     
     public boolean añadirCliente(int numero, String nombre, float puntos, LocalDate fechaNaci, JLabel lblError){
         if (Validador.validarCliente(fechaNaci, puntos, lblError)) {
             lista.add(new Cliente(numero, nombre, puntos, fechaNaci));
+            indice = lista.size() - 1;
             return true;
         }
-        return false; // Hubo un error y se mostró en el JLabel rojo
+        return false;
+    }
+
+    public Cliente getClienteActual() {
+        if (lista.isEmpty() || indice < 0 || indice >= lista.size()) {
+            return null;
+        }
+        return lista.get(indice);
     }
     
-
-    public class Validador {
-
+    public static class Validador {
         public static boolean validarCliente(LocalDate fechaNac, float puntos, JLabel lblMensaje) {
-            // Validar fecha de nacimiento (entre 1900 y 2015)
             if (fechaNac == null) {
                 mostrarError(lblMensaje, "Error: La fecha no puede estar vacía.");
                 return false;
@@ -55,13 +71,11 @@ public class Controlador {
                 return false;
             }
 
-            // Validar puntos (entre 0 y 1000)
             if (puntos < 0 || puntos > 1000) {
                 mostrarError(lblMensaje, "Error: Los puntos deben estar entre 0 y 1000.");
                 return false;
             }
 
-            // Si todo es correcto, limpiamos el mensaje de error
             lblMensaje.setText("");
             return true;
         }

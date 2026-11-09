@@ -1,15 +1,23 @@
 package Vista;
-/** @author aosun*/
+
+import Controlador.Controlador;
 public class PrincipalFrame extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PrincipalFrame.class.getName());
 
-    /**
-     * Creates new form PrincipalFrame
-     */
+    private Controlador controlador; // Declaramos el controlador global
+    private PanelVer verPanel;
+    private PanelAlta panelAlta;
     public PrincipalFrame() {
         initComponents();
+        
+        controlador = new Controlador(); // Inicializamos el controlador
+        
         verPanel = new PanelVer();
+        panelAlta = new PanelAlta();
+        
+        // Inyectamos el controlador en el panel de ver
+        verPanel.setControlador(controlador);
     }
 
     /**
@@ -41,11 +49,16 @@ public class PrincipalFrame extends javax.swing.JFrame {
         jMenu1.add(VerCliente);
 
         DarDeAlta.setText("Nuevo");
+        DarDeAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DarDeAltaActionPerformed(evt);
+            }
+        });
         jMenu1.add(DarDeAlta);
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Salir");
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -70,6 +83,11 @@ public class PrincipalFrame extends javax.swing.JFrame {
         this.pack();
     }//GEN-LAST:event_VerClienteActionPerformed
 
+    private void DarDeAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DarDeAltaActionPerformed
+        this.setContentPane(panelAlta);
+        this.pack();
+    }//GEN-LAST:event_DarDeAltaActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -94,8 +112,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new PrincipalFrame().setVisible(true));
     }
-    
-    private PanelVer verPanel;
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem DarDeAlta;
     private javax.swing.JMenuItem VerCliente;
