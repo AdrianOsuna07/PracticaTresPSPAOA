@@ -1,22 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package Vista;
 
-/**
- *
- * @author aosun
- */
-public class PanelAlta extends javax.swing.JPanel {
+import Controlador.Controlador;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
+import javax.swing.JOptionPane;
 
+public class PanelAlta extends javax.swing.JPanel {
+    private Controlador controlador;
     /**
      * Creates new form PanelAlta
      */
     public PanelAlta() {
         initComponents();
     }
-
+    public void setControlador(Controlador controlador) {
+        this.controlador = controlador;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,19 +25,158 @@ public class PanelAlta extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        numeroLabel = new javax.swing.JLabel();
+        numeroField = new javax.swing.JTextField();
+        nombreLabel = new javax.swing.JLabel();
+        nombreField = new javax.swing.JTextField();
+        botonAlta = new javax.swing.JButton();
+        puntosLabel = new javax.swing.JLabel();
+        puntosField = new javax.swing.JTextField();
+        fechaLabel = new javax.swing.JLabel();
+        fechaField = new javax.swing.JTextField();
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        numeroLabel.setText("Numero:");
+
+        nombreLabel.setText("Nombre:");
+
+        botonAlta.setText("Alta");
+        botonAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAltaActionPerformed(evt);
+            }
+        });
+
+        puntosLabel.setText("Puntos:");
+
+        puntosField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                puntosFieldActionPerformed(evt);
+            }
+        });
+
+        fechaLabel.setText("Fecha:");
+
+        fechaField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechaFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(164, 164, 164)
+                .addComponent(botonAlta)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(101, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(numeroLabel)
+                    .addComponent(nombreLabel)
+                    .addComponent(puntosLabel)
+                    .addComponent(fechaLabel))
+                .addGap(61, 61, 61)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fechaField, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(puntosField, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nombreField, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numeroField, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(numeroField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numeroLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nombreLabel)
+                    .addComponent(nombreField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(puntosLabel)
+                    .addComponent(puntosField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fechaLabel)
+                    .addComponent(fechaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(botonAlta)
+                .addGap(60, 60, 60))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botonAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAltaActionPerformed
+        try {
+            // 1. Recoger y convertir los datos de las cajas de texto
+            int numero = Integer.parseInt(numeroField.getText());
+            String nombre = nombreField.getText();
+            float puntos = Float.parseFloat(puntosField.getText());
+            LocalDate fecha = LocalDate.parse(fechaField.getText()); // Formato esperado: AAAA-MM-DD
+
+            // 2. Comprobar que el controlador está conectado e invocar el método de añadir
+            if (controlador != null) {
+                // Pasamos un JLabel temporal nulo o creamos un JLabel vacío auxiliar para que no falle el método antiguo si lo requiere, 
+                // o podemos añadir un método al controlador que no pida JLabel.
+                // Como el controlador pide un JLabel para el validador, le pasamos uno nuevo vacío o un JLabel temporal.
+                javax.swing.JLabel lblDummy = new javax.swing.JLabel(); 
+                
+                boolean exito = controlador.añadirCliente(numero, nombre, puntos, fecha, lblDummy);
+                
+                if (exito) {
+                    JOptionPane.showMessageDialog(this, "¡Cliente añadido con éxito!");
+                    // Limpiar las cajas de texto tras el éxito
+                    numeroField.setText("");
+                    nombreField.setText("");
+                    puntosField.setText("");
+                    fechaField.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(this, lblDummy.getText(), "Error de validación", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Error: El número y los puntos deben ser valores numéricos.", "Error de formato", JOptionPane.ERROR_MESSAGE);
+        } catch (DateTimeParseException e) {
+            JOptionPane.showMessageDialog(this, "Error: Formato de fecha incorrecto. Usa el formato AAAA-MM-DD.", "Error de fecha", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_botonAltaActionPerformed
+
+    private void puntosFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_puntosFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_puntosFieldActionPerformed
+
+    private void fechaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fechaFieldActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonAlta;
+    private javax.swing.JTextField fechaField;
+    private javax.swing.JLabel fechaLabel;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField nombreField;
+    private javax.swing.JLabel nombreLabel;
+    private javax.swing.JTextField numeroField;
+    private javax.swing.JLabel numeroLabel;
+    private javax.swing.JTextField puntosField;
+    private javax.swing.JLabel puntosLabel;
     // End of variables declaration//GEN-END:variables
+
 }

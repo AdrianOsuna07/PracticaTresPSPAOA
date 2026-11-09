@@ -18,6 +18,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
         
         // Inyectamos el controlador en el panel de ver
         verPanel.setControlador(controlador);
+        panelAlta.setControlador(controlador);
     }
 
     /**
