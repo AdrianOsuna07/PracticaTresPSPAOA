@@ -6,6 +6,7 @@ package Vista;
 
 import Controlador.Controlador;
 import Modelo.Cliente;
+import java.awt.Color;
 
 public class PanelVer extends javax.swing.JPanel {
 
@@ -25,6 +26,7 @@ public class PanelVer extends javax.swing.JPanel {
             Cliente c = controlador.getClienteActual();
             if (c != null) {
                 cajaNumero.setText(String.valueOf(c.getNumero()));
+                cajaNombre.setForeground(Color.red);
                 cajaNombre.setText(c.getNombre());
                 cajaPunto.setText(String.valueOf(c.getPuntos()));
                 cajaFecha.setText(c.getFechaNaci() != null ? c.getFechaNaci().toString() : "");
@@ -55,6 +57,7 @@ public class PanelVer extends javax.swing.JPanel {
         Atras = new javax.swing.JButton();
         PrimerCliente = new javax.swing.JButton();
         UltimoCliente = new javax.swing.JButton();
+        CambiaColor = new javax.swing.JButton();
 
         jButton2.setText("jButton1");
 
@@ -113,6 +116,13 @@ public class PanelVer extends javax.swing.JPanel {
             }
         });
 
+        CambiaColor.setText("CambiaColor");
+        CambiaColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CambiaColorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -135,10 +145,15 @@ public class PanelVer extends javax.swing.JPanel {
                     .addComponent(cajaFecha))
                 .addGap(84, 84, 84))
             .addGroup(layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(PrimerCliente)
-                .addGap(34, 34, 34)
-                .addComponent(UltimoCliente)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(PrimerCliente)
+                        .addGap(34, 34, 34)
+                        .addComponent(UltimoCliente))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(163, 163, 163)
+                        .addComponent(CambiaColor)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -168,7 +183,9 @@ public class PanelVer extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PrimerCliente)
                     .addComponent(UltimoCliente))
-                .addGap(50, 50, 50))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CambiaColor)
+                .addGap(21, 21, 21))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -212,10 +229,21 @@ public class PanelVer extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_UltimoClienteActionPerformed
 
+    private void CambiaColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiaColorActionPerformed
+        Color color = cajaNombre.getForeground();
+        if(color == Color.red){
+            cajaNombre.setForeground(Color.black);
+        }else{
+            cajaNombre.setForeground(Color.red);
+        }
+               // TODO add your handling code here:
+    }//GEN-LAST:event_CambiaColorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Adelante;
     private javax.swing.JButton Atras;
+    private javax.swing.JButton CambiaColor;
     private javax.swing.JLabel Fecha;
     private javax.swing.JLabel Nombre;
     private javax.swing.JLabel Numero;
